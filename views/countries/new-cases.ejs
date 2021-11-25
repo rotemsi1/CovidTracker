@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <form action="/cases" method="POST">
+        <p>You are authorized to enter data for <%= countryData.name %></p>
+        <p>New cases today</p>
+        <input type="text" name="newCases" id="newCases" value="" />
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="btn" type="submit">Add</button>
+      </form>
+    </main>
+  </body>
+  </html>
+</html>

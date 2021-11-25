@@ -1,0 +1,18 @@
+<% if (errorMessage) { %>
+<div><%= errorMessage %></div>
+<% } else { %>
+<p><%= countryData.name %></p>
+<p>Population: <%= countryData.population %></p>
+<img
+  src="/images/<%= countryData.name %>.jpg"
+  style="width: 150px; height: 100px"
+/>
+<p>New tests today: <%= countryData.tests.at(-1).amount %></p>
+<p>Total tests: <%= countryData.calculateTotal("tests") %></p>
+<p>Tests per 1 million: <%= countryData.calculatePer1Million("tests") %></p>
+<p>
+  Moving average for the last week: <%=
+  countryData.calculateMovingAverage("tests", 7) %>
+</p>
+<a href="/tests/<%= countryData._id %>">Create an invoice</a>
+<% } %>

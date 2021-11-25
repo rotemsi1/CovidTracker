@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <p>Signup to Covid Tracker</p>
+      <% if (errorMessage) { %>
+        <div><%= errorMessage %></div>
+      <% } %>
+      <br>
+      <form action="signup" method="POST" novalidate>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= oldInput.email %>">
+        </div>
+        <br>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="<%= oldInput.password %>">
+        </div>
+        <p>Select country of ownership:</p>
+        <select name="country" id="country">
+          <% for (let country of countriesData) { %> 
+            <option value="<%= country.name %>"><%= country.name %></option>
+          <% } %>
+        </select>
+        <br>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <br>
+        <button class="btn" type="submit">Signup</button>
+    </form>
+    </main>
+  </body>
+  </html>
+</html>

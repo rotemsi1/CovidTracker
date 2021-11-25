@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "rotem",
+    "MONGO_PASSWORD": "z9iVwfry",
+    "MONGO_DEFAULT_DATABASE": "covid-database"
+  }
+}

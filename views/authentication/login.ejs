@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <p>Login to Covid Tracker</p>
+      <% if (errorMessage) { %>
+        <div><%= errorMessage %></div>
+      <% } %>
+      <br>
+      <form action="login" method="POST" novalidate>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%= oldInput.email %>">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="<%= oldInput.password %>">
+        </div>
+        <br>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button class="btn" type="submit">Login</button>
+      </form>
+      <br>
+      <div>
+        <a href="/reset-password">Reset Password</a>
+      </div>
+    </main>
+  </body>
+  </html>
+</html>

@@ -1,0 +1,32 @@
+<nav>
+  <ul>
+    <% if (!isAuthenticated) { %>
+    <li>
+      <a href="/signup">Signup</a>
+    </li>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+    <% } else { %>
+    <li>
+      <form action="/logout" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+    <br />
+    <li>
+      <a href="/new-cases">New cases</a>
+    </li>
+    <li>
+      <a href="/new-deaths">New deaths</a>
+    </li>
+    <li>
+      <a href="/new-recoveries">New recoveries</a>
+    </li>
+    <li>
+      <a href="/new-tests">New tests</a>
+    </li>
+    <% } %>
+  </ul>
+</nav>
